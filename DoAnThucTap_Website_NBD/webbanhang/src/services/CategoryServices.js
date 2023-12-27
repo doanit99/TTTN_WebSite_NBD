@@ -18,6 +18,9 @@ function remove(id){
     return httpAxios.delete(`Categories/DeleteCategory/${id}`);
 }
 //FrontEnd
+function getCategoryByParentId(parentId){
+    return httpAxios.get(`Categories/GetCategoryByParentId/${parentId}`);
+}
 
 const Categoryservice ={
     
@@ -25,7 +28,8 @@ const Categoryservice ={
     getById:getById,
     create:create,
     update:update,
-    remove:remove
+    remove:remove,
+    getCategoryByParentId:getCategoryByParentId
 }
 
 export default Categoryservice;

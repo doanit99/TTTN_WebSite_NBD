@@ -5,33 +5,33 @@ function Home() {
     const [categorys,setCategory]=useState([]);
     useEffect (function(){
         (async function(){
-            await CategoryService.getCategoryByParentId(0).then(function(result){
-                setCategory(result.data.categorys);
+            await CategoryService.getCategoryByParentId(1).then(function(result){
+                setCategory(result.data);
             });
         })();
     },[]);
 
   
     return (
-        <section class="container-fluid py-4">
-        <div class="container mt-5">
-            <h2 class="mb-4 text-center">Product List</h2>
+        <section className="container-fluid py-4">
+        <div className="container mt-5">
+            <h2 className="mb-4 text-center">Product List</h2>
     
-            <div class="row">
+            <div className="row">
     
-                {/* <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <img src="product1.jpg" class="card-img-top" alt="Product 1"/>
-                        <div class="card-body">
-                            <h5 class="card-title">Product 1</h5>
-                            <p class="card-text">Description of Product 1.</p>
-                            <a href="#" class="btn btn-primary">Buy Now</a>
+                {/* <div className="col-md-3 mb-4">
+                    <div className="card">
+                        <img src="product1.jpg" className="card-img-top" alt="Product 1"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Product 1</h5>
+                            <p className="card-text">Description of Product 1.</p>
+                            <a href="#" className="btn btn-primary">Buy Now</a>
                         </div>
                     </div>
                 </div> */}
     
                 {categorys.map(function(category,index){
-            return <ProductHome key={index} category={category}/>
+                return <ProductHome key={index} category={category}/>
 
            })}
             

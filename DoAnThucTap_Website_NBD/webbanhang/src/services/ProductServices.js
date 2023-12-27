@@ -18,6 +18,13 @@ function remove(id){
     return httpAxios.delete(`Products/DeleteProduct/${id}`);
 }
 //FrontEnd
+function getProductHome(categoryId){
+    return httpAxios.get(`Products/GetProductByCategory/${categoryId}`);
+}
+
+function getProductAll(limit, page){
+    return httpAxios.get(`Products/GetAllProduct/${limit}/${page}`);
+}
 
 const ProductService ={
     
@@ -25,7 +32,9 @@ const ProductService ={
     getById:getById,
     create:create,
     update:update,
-    remove:remove
+    remove:remove,
+    getProductHome:getProductHome,
+    getProductAll:getProductAll
 }
 
 export default ProductService;
