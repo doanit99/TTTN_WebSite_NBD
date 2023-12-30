@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\banners\\iphone-14-pro-max-den-thumb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\banners\\iphone-14-pro-max-den-thumb-600x600.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\banners\\iphone-15-pro-gold-thumbnew-600x600.webp",
+      "PackagePath": "staticwebassets\\images\\banners\\iphone-15-pro-gold-thumbnew-600x600.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\download.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\iphone-14-pro-max-den-thumb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\iphone-14-pro-max-den-thumb-600x600.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp",
+      "PackagePath": "staticwebassets\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\greenApple.png",
+      "PackagePath": "staticwebassets\\images\\products\\greenApple.png"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp",
+      "PackagePath": "staticwebassets\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\peach.png",
+      "PackagePath": "staticwebassets\\images\\products\\peach.png"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.DoAnThucTap_Api_NBD.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.DoAnThucTap_Api_NBD.props",
+      "PackagePath": "build\\DoAnThucTap_Api_NBD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.DoAnThucTap_Api_NBD.props",
+      "PackagePath": "buildMultiTargeting\\DoAnThucTap_Api_NBD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.DoAnThucTap_Api_NBD.props",
+      "PackagePath": "buildTransitive\\DoAnThucTap_Api_NBD.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

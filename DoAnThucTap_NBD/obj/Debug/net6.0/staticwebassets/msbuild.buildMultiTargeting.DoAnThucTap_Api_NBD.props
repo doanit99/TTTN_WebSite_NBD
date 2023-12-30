@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DoAnThucTap_Api_NBD.props" />
+</Project>
