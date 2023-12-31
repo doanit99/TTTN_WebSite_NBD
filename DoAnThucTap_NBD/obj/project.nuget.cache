@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BjaoM5KJ344HmQYAne+gOJtfGwR8NExL9t8EHbXXwTTPZyDd6MI/WNmZIuf6Ffe6AbipO+T6mzL2Yf0eW47/QA==",
+  "dgSpecHash": "/QNwqEw28BszBDuOxz69H7m/aGh2xrs9AvHboQra0ewlYCYidlhAkcC/yxLmKzbLls3K9IY395ouEkq9qUFRdQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\DoAnThucTap_Api_NBD.csproj",
+  "projectFilePath": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\DoAnThucTap_Api_NBD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DoanIT\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\DoanIT\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

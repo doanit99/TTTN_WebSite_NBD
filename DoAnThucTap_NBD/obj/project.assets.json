@@ -11060,11 +11060,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\DoAnThucTap_Api_NBD.csproj",
+      "projectUniqueName": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\DoAnThucTap_Api_NBD.csproj",
       "projectName": "DoAnThucTap_Api_NBD",
-      "projectPath": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\DoAnThucTap_Api_NBD.csproj",
+      "projectPath": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\DoAnThucTap_Api_NBD.csproj",
       "packagesPath": "C:\\Users\\DoanIT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\obj\\",
+      "outputPath": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

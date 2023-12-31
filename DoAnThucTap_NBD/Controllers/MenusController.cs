@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ using WebApi_DoAnThucTap_NBD.Models;
 
 namespace DoAnThucTap_NBD.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class MenusController : ControllerBase
     {
@@ -116,6 +117,29 @@ namespace DoAnThucTap_NBD.Controllers
             return NoContent();
         }
 
+        //Get menu by parent id
+        [HttpGet("{parentId}")]
+        public async Task<IActionResult> GetMenuByParentId(int parentId)
+        {
+            if (_context.Menus == null)
+            {
+                return NotFound();
+            }
+            if(parentId != 0)
+            {
+                var menus = await _context.Menus.Where(m=>m.ParentId==parentId).ToListAsync();
+                if (menus == null || !menus.Any())
+                {
+                    return NotFound("Không tìm thấy menu đã chỉ định.");
+                }
+
+                return Ok(menus);
+            }
+            else
+            {
+                return BadRequest("Menu không được chỉ định hoặc không hợp lệ.");
+            }
+        }
         private bool MenuExists(int id)
         {
             return (_context.Menus?.Any(e => e.Id == id)).GetValueOrDefault();

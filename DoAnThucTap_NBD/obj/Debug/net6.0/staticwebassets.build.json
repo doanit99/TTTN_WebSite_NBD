@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Nwnt9o7/Jr/klGb25z2nNQWZvKe2xZ6sNo6400DNHA0=",
+  "Hash": "xvIR0fW+XJ+LCFOmMz76QrUEWPG1VU16q+PwN59dcFI=",
   "Source": "DoAnThucTap_Api_NBD",
   "BasePath": "_content/DoAnThucTap_Api_NBD",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "DoAnThucTap_Api_NBD\\wwwroot",
       "Source": "DoAnThucTap_Api_NBD",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\banners\\iphone-14-pro-max-den-thumb-600x600.jpg",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\banners\\iphone-14-pro-max-den-thumb-600x600.jpg",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/banners/iphone-14-pro-max-den-thumb-600x600.jpg",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\images\\banners\\iphone-14-pro-max-den-thumb-600x600.jpg"
     },
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\banners\\iphone-15-pro-gold-thumbnew-600x600.webp",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\banners\\iphone-15-pro-gold-thumbnew-600x600.webp",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/banners/iphone-15-pro-gold-thumbnew-600x600.webp",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\images\\banners\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\download.jpg",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\download.jpg",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/brands/download.jpg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\images\\brands\\download.jpg"
     },
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\iphone-14-pro-max-den-thumb-600x600.jpg",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\iphone-14-pro-max-den-thumb-600x600.jpg",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/brands/iphone-14-pro-max-den-thumb-600x600.jpg",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\images\\brands\\iphone-14-pro-max-den-thumb-600x600.jpg"
     },
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/brands/iphone-15-pro-gold-thumbnew-600x600.webp",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\greenApple.png",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\greenApple.png",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/products/greenApple.png",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\greenApple.png"
     },
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/products/iphone-15-pro-gold-thumbnew-600x600.webp",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\peach.png",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\peach.png",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_Api_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
       "BasePath": "_content/DoAnThucTap_Api_NBD",
       "RelativePath": "images/products/peach.png",
       "AssetKind": "All",
