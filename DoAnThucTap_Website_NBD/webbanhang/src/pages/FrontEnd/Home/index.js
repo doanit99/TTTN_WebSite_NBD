@@ -1,6 +1,8 @@
 import CategoryService from "../../../services/CategoryServices";
 import ProductHome from "./ProductHome";
 import { useEffect, useState } from "react";
+import Slider from "../../../layouts/LayoutSite/Slider";
+
 function Home() {
     const [categorys,setCategory]=useState([]);
     useEffect (function(){
@@ -13,6 +15,8 @@ function Home() {
 
   
     return (
+        <>
+        <Slider />
         <section className="container-fluid py-4">
         <div className="container mt-5">
             <h2 className="mb-4 text-center">Product List</h2>
@@ -42,6 +46,7 @@ function Home() {
 
         </div>
     </section>
+    </>
     )
 }
 export default Home;

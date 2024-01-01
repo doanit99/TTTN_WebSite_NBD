@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Menu from "./Menu";
-import Slider from "./Slider";
 import Footer from "./Footer";
 
 
@@ -13,7 +12,7 @@ function LayoutSite() {
                     <Header />
                     <Menu />                   
                 </header>
-                <Slider/>
+                
                 <Outlet />
                 <Footer/>
             </div>

@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Categoryservice from "../../services/CategoryServices";
 
-function Categoryitem(props) {
-    const rowcategory = props.category;
+function CategoryItem(props) {
+    const rowCategory = props.category;
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(function () {
         (async function () {
             try {
-                const result = await Categoryservice.getByParentId(rowcategory.id);
+                const result = await Categoryservice.getCategoryByParentId(rowCategory.id);
                 setCategories(result.data);
                 setLoading(false);
             } catch (error) {
@@ -20,32 +19,44 @@ function Categoryitem(props) {
 
             }
         })();
-    }, [rowcategory.id]);
+    }, [rowCategory.id]);
+
     if (loading) {
         return <p>Loading...</p>;
-    } else if (categories == null) {
+    } else if (categories.length === 0) {
         return (
-            <li className="right-menu">
-                <Link className="text-dark" to={categories.slug}>{categories.name}</Link>
+            <li className="nav-item">
+                <Link className="nav-link text-dark" to={rowCategory.slug}>
+                    {rowCategory.name}
+                </Link>
             </li>
         );
-    }
-    else {
+    } else {
         return (
-
-            <li className="right-menu">
-                <Link to={categories.slug}
-                    role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color:'black'}}>
-                    {categories.name}
+            <li className="nav-item dropdown">
+                <Link
+                    className="nav-link dropdown-toggle text-dark"
+                    to={rowCategory.slug}
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    {rowCategory.name}
                 </Link>
-                <ul className="dropdown-menu text-dark">
-                    {categories.map(function (categories1, index) {
-                        return <li key={index}><Link className="dropdown-item" to={categories1.slug}>{categories1.name}</Link></li>
-                    })}
-
+                <ul className="dropdown-menu">
+                    {/* Subcategories */}
+                    {categories.map((category, index) => (
+                        <li key={index}>
+                            <Link className="dropdown-item" to={category.slug}>
+                                {category.name}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </li>
+
         );
     }
 }
-export default Categoryitem;
+
+export default CategoryItem;
