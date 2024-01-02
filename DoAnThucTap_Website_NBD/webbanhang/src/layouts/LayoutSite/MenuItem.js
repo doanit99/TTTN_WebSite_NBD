@@ -15,7 +15,8 @@ function Menuitem(props) {
                 setMenus(result.data);
                 setLoading(false);
             } catch (error) {
-                console.error(error);
+               
+                setMenus([]);
                 setLoading(false);
 
             }
@@ -23,7 +24,8 @@ function Menuitem(props) {
     }, [rowmenu.id]);
     if (loading) {
         return <p>Loading...</p>;
-    } else if (menus == null) {
+    } 
+    else if (!menus || menus.length === 0) {
         return (
             <li className="nav-item">
                 <Link className="nav-link text-white" to={rowmenu.link}>{rowmenu.name}</Link>

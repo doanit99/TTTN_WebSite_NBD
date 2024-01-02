@@ -10,7 +10,7 @@ function Header(){
                             <div className="col-lg-3">
                                 <div className="logo pb-sm-30 pb-xs-30">
                                     <a href="index.html">
-                                        <img src="frontend/images/menu/logo/1.jpg" alt=""/>
+                                        <img src="../frontend/images/menu/logo/1.jpg" alt=""/>
                                     </a>
                                 </div>
                             </div>

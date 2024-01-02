@@ -13,7 +13,7 @@ function Footer(){
                                 <div className="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                                     <div className="li-shipping-inner-box">
                                         <div className="shipping-icon">
-                                            <img src="frontend/images/shipping-icon/1.png" alt="Shipping Icon"/>
+                                            <img src="../frontend/images/shipping-icon/1.png" alt="Shipping Icon"/>
                                         </div>
                                         <div className="shipping-text">
                                             <h2>Free Delivery</h2>
@@ -26,7 +26,7 @@ function Footer(){
                                 <div className="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                                     <div className="li-shipping-inner-box">
                                         <div className="shipping-icon">
-                                            <img src="frontend/images/shipping-icon/2.png" alt="Shipping Icon"/>
+                                            <img src="../frontend/images/shipping-icon/2.png" alt="Shipping Icon"/>
                                         </div>
                                         <div className="shipping-text">
                                             <h2>Safe Payment</h2>
@@ -39,7 +39,7 @@ function Footer(){
                                 <div className="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                                     <div className="li-shipping-inner-box">
                                         <div className="shipping-icon">
-                                            <img src="frontend/images/shipping-icon/3.png" alt="Shipping Icon"/>
+                                            <img src="../frontend/images/shipping-icon/3.png" alt="Shipping Icon"/>
                                         </div>
                                         <div className="shipping-text">
                                             <h2>Shop with Confidence</h2>
@@ -52,7 +52,7 @@ function Footer(){
                                 <div className="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                                     <div className="li-shipping-inner-box">
                                         <div className="shipping-icon">
-                                            <img src="frontend/images/shipping-icon/4.png" alt="Shipping Icon"/>
+                                            <img src="../frontend/images/shipping-icon/4.png" alt="Shipping Icon"/>
                                         </div>
                                         <div className="shipping-text">
                                             <h2>24/7 Help Center</h2>
@@ -75,7 +75,7 @@ function Footer(){
                                 {/* Begin Footer Logo Area */}
                                 <div className="col-lg-4 col-md-6">
                                     <div className="footer-logo">
-                                        <img src="frontend/images/menu/logo/1.jpg" alt="Footer Logo"/>
+                                        <img src="../frontend/images/menu/logo/1.jpg" alt="Footer Logo"/>
                                         <p className="info">
                                             We are a team of designers and developers that create high quality HTML Template & Woocommerce, Shopify Theme.
                                         </p>
@@ -212,7 +212,7 @@ function Footer(){
                                 {/* Begin Footer Payment Area */}
                                 <div className="copyright text-center">
                                     <a href="#">
-                                        <img src="frontend/images/payment/1.png" alt=""/>
+                                        <img src="../frontend/images/payment/1.png" alt=""/>
                                     </a>
                                 </div>
                                 {/* Footer Payment Area End Here */}

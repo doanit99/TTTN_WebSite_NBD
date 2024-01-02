@@ -26,6 +26,9 @@ function getProductAll(limit, page){
     return httpAxios.get(`Products/GetAllProduct/${limit}/${page}`);
 }
 
+function getProductByCategoryParent(categoryIdParent){
+    return httpAxios.get(`Products/GetProductByCategoryParent/${categoryIdParent}`);
+}
 const ProductService ={
     
     getAll:getAll,
@@ -34,7 +37,8 @@ const ProductService ={
     update:update,
     remove:remove,
     getProductHome:getProductHome,
-    getProductAll:getProductAll
+    getProductAll:getProductAll,
+    getProductByCategoryParent:getProductByCategoryParent
 }
 
 export default ProductService;

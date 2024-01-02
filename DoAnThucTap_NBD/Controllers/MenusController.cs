@@ -130,7 +130,7 @@ namespace DoAnThucTap_NBD.Controllers
                 var menus = await _context.Menus.Where(m=>m.ParentId==parentId).ToListAsync();
                 if (menus == null || !menus.Any())
                 {
-                    return NotFound("Không tìm thấy menu đã chỉ định.");
+                    return NotFound();
                 }
 
                 return Ok(menus);

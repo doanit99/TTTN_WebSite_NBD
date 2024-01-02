@@ -166,7 +166,7 @@ namespace DoAnThucTap_NBD.Controllers
             return slug;
         }
 
-        //GetProductByCategory
+        //Get Product By ever Category
         [HttpGet("{categoryId}")]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(int categoryId)
         {
@@ -184,7 +184,7 @@ namespace DoAnThucTap_NBD.Controllers
 
                 if (products == null || !products.Any())
                 {
-                    return NotFound("Không tìm thấy sản phẩm cho danh mục đã chỉ định.");
+                    return NotFound();
                 }
 
                 return Ok(products);
@@ -231,6 +231,39 @@ namespace DoAnThucTap_NBD.Controllers
             }
         }
 
+        //get all product by ever category parent
+        [HttpGet("{categoryIdParent}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategoryParent(int categoryIdParent)
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+
+            if (categoryIdParent != 0)
+            {
+                //Lọc tất cả id menu con theo parent id 
+                var cate = await _context.Categories.Where(c=> c.Parent_Id == categoryIdParent)
+                    .Select(c => c.Id)
+                    .ToListAsync();
+
+                // Lọc sản phẩm theo category nếu category được chỉ định
+                var products = await _context.Products
+                    .Where(p => cate.Contains(p.Category_Id))
+                    .ToListAsync();
+
+                if (products == null || !products.Any())
+                {
+                    return NotFound();
+                }
+
+                return Ok(products);
+            }
+            else
+            {
+                return BadRequest("Danh mục không được chỉ định hoặc không hợp lệ.");
+            }
+        }
         private bool ProductExists(int id)
         {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
