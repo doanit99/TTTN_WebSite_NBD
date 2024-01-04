@@ -26,7 +26,7 @@ function CategoryItem(props) {
     } else if (categories.length === 0) {
         return (
             <li className="nav-item">
-                <Link className="nav-link text-dark" to={rowCategory.slug}>
+                <Link className="nav-link text-dark" to={`/danh-muc-san-pham/${rowCategory.id}`}>
                     {rowCategory.name}
                 </Link>
             </li>
@@ -36,7 +36,7 @@ function CategoryItem(props) {
             <li className="nav-item dropdown">
                 <Link
                     className="nav-link dropdown-toggle text-dark"
-                    to={rowCategory.slug}
+                    to={`/danh-muc-san-pham/${rowCategory.id}`}
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -47,7 +47,7 @@ function CategoryItem(props) {
                     {/* Subcategories */}
                     {categories.map((category, index) => (
                         <li key={index}>
-                            <Link className="dropdown-item" to={category.slug}>
+                            <Link className="dropdown-item" to={`/danh-muc-san-pham/${rowCategory.id}`}>
                                 {category.name}
                             </Link>
                         </li>

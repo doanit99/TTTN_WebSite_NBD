@@ -10,7 +10,7 @@ function ProductHome(props) {
     useEffect(function () {
         (async function () {
             try {
-                await ProductService.getProductHome(props.category.id).then(function (result) {
+                await ProductService.getProductByCategoryParent(props.category.id).then(function (result) {
                     setProduct(result.data);
                 });
             } catch (error) {
@@ -26,7 +26,7 @@ function ProductHome(props) {
         return (
             <div className="container my-3" style={{ background: '#fff' }}>
                 <div className="product-category">
-                    <h3 className="text-center pt-4" style={{ textTransform: 'uppercase' }}>{props.category.name}</h3>
+                    <h3 className="text-bold pt-4" style={{ textTransform: 'uppercase' }}>{props.category.name}</h3>
                     <div className="row" >
                         {products.map(function (product, index) {
                             return <Productitem product={product} key={index} />

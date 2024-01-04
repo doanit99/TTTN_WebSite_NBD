@@ -52,7 +52,7 @@ async function BrandDelete(id){
                         {brands.map(function(brand,index){
                             return(<tr key={index}>
                                 <td className='text-center'><input type='checkbox'></input></td>
-                                <td className='text-center'><img className='w-100 h-100' src={urlImage+brand.image} alt={brand.image}></img></td>
+                                <td className='text-center'><img className='w-100 h-100' src={urlImage+"brands/"+brand.image} alt={brand.image}></img></td>
                                 <td >{brand.name}</td>
                               
                                 <td className='text-center'>{brand.createdAt}</td>

@@ -51,7 +51,7 @@ function BrandShow() {
                         <tr>
                             <th scope="row">Hình ảnh</th>
                             
-                            <td><img className='w-25 h-25' src={urlImage+brand.image} alt={brand.image}></img></td>
+                            <td><img className='w-25 h-25' src={urlImage+"brands/"+brand.image} alt={brand.image}></img></td>
                         </tr>
                         <tr>
                             <th scope="row">Mô tả</th>

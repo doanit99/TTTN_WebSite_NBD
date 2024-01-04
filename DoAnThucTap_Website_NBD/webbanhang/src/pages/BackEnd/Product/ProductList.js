@@ -53,7 +53,7 @@ async function ProductDelete(id){
                         {products.map(function(product,index){
                             return(<tr key={index}>
                                 <td className='text-center'><input type='checkbox'></input></td>
-                                <td className='text-center'><img className='w-100 h-100' src={urlImage+product.image} alt={product.image}></img></td>
+                                <td className='text-center'><img className='w-100 h-100' src={urlImage+"products/"+product.image} alt={product.image}></img></td>
                                 <td >{product.name}</td>
                               
                                 <td className='text-center'>{product.price}</td>

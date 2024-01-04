@@ -1,49 +1,69 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FaSave } from 'react-icons/fa';
 import { BiArrowBack } from 'react-icons/bi';
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import ProductService from "../../../services/ProductServices";
-function ProductCreate(){
-    const navigate=useNavigate();
-    const [name,setName]=useState('');
-    const [category_Id,setCategory_Id]=useState(0);
-    const [brand_Id,setBrand_Id]=useState(0);
-    const [price,setPrice]=useState(0);
-    const [qty,setQty]=useState(0);
-    const [description,setDescription]=useState(''); 
-    const [detail,setDetail]=useState('');
-    const [status,setStatus]=useState(0);
+import Categoryservice from "../../../services/CategoryServices";
+import BrandService from "../../../services/BrandServices";
+function ProductCreate() {
+    const navigate = useNavigate();
+    const [name, setName] = useState('');
+    const [id, setCategory_Id] = useState(0);
+    const [brand_Id, setBrand_Id] = useState(0);
+    const [price, setPrice] = useState(0);
+    const [qty, setQty] = useState(0);
+    const [description, setDescription] = useState('');
+    const [detail, setDetail] = useState('');
+    const [status, setStatus] = useState(0);
 
-    async function ProductStore(event)
-    {
+    async function ProductStore(event) {
         event.preventDefault();
-        const image =document.querySelector("#image");
-        var product=new FormData();
-        product.append("name",name);
-        product.append("category_Id",category_Id);
-        product.append("brand_Id",brand_Id);
-        product.append("price",price);
-        product.append("qty",qty);
-        product.append("description",description);
-        product.append("detail",detail);
-        product.append("status",status);
-        product.append("image",image.files[0]);
+        const image = document.querySelector("#image");
+        var product = new FormData();
+        product.append("name", name);
+        product.append("category_Id", id);
+        product.append("brand_Id", brand_Id);
+        product.append("price", price);
+        product.append("qty", qty);
+        product.append("description", description);
+        product.append("detail", detail);
+        product.append("status", status);
+        product.append("image", image.files[0]);
         ProductService.create(product)
-        .then(function(result){
-            alert('Thêm thành công');
-            navigate('/admin/product',{replace:true});
-        });     
+            .then(function (result) {
+                alert('Thêm thành công');
+                navigate('/admin/product', { replace: true });
+            });
     }
 
-    const [products, setProducts]=useState([]);
-    useEffect(function(){
-        (async function(){
-            await ProductService.getAll().then(function(result){
-                setProducts(result.data);
+    const [categories, setCategories] = useState([]);
+    useEffect(function () {
+        (async function () {
+            await Categoryservice.getCategoryByParentId(1).then(function (result) {
+                setCategories(result.data);
             });
         })();
-    },[]);
-    return(
+    }, []);
+
+    const [categoriesChild, setCategoriesChild] = useState([]);
+    useEffect(function () {
+        (async function () {
+            await Categoryservice.getAll().then(function (result) {
+                setCategoriesChild(result.data);
+            });
+        })();
+    }, []);
+
+    const [brands, setBrands] = useState([]);
+    useEffect(function () {
+        (async function () {
+            await BrandService.getAll().then(function (result) {
+                setBrands(result.data);
+            });
+        })();
+    }, []);
+
+    return (
         <form method="post" onSubmit={ProductStore}>
             <div className="card">
                 <div className="card-header">
@@ -54,8 +74,8 @@ function ProductCreate(){
                             </strong>
                         </div>
                         <div className="col-md-6 text-end">
-                            <Link  to="/admin/product" className="btn btn-info btn-success"><BiArrowBack/>Quay về danh sách</Link>
-                            <button type="submit" className="btn btn-sm btn-success p-2"><FaSave/>Lưu</button>
+                            <Link to="/admin/product" className="btn btn-info btn-success"><BiArrowBack />Quay về danh sách</Link>
+                            <button type="submit" className="btn btn-sm btn-success p-2"><FaSave />Lưu</button>
                         </div>
                     </div>
                 </div>
@@ -64,34 +84,63 @@ function ProductCreate(){
                         <div className="col-md-9">
                             <div className="mb-3">
                                 <label htmlFor="">Tên thương hiệu</label>
-                                <input type="text" name="brand_Id" onChange={(e)=>setBrand_Id(e.target.value)} className="form-control" required></input>
+                                <select name="brand_Id" value={brand_Id} onChange={(e)=>setBrand_Id(e.target.value)} 
+                                className="form-control">                                  
+                                    {brands.map(function(br,index){
+                                        return(<option key={index} value={br.id}>{br.name}</option>);
+                                    })}
+                                </select>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="">Tên danh mục</label>
-                                <input type="text" name="category_Id" onChange={(e)=>setCategory_Id(e.target.value)} className="form-control" required></input>
+                                <select
+                                    name="category_Id"
+                                    value={id}
+                                    onChange={(e) => setCategory_Id(e.target.value)}
+                                    className="form-control"
+                                    required
+                                >
+                                    {categories.map(function (cate, index) {
+                                        return (
+                                            <optgroup key={index} label={cate.name}>
+                                                {categoriesChild.map(function (cateChild, indexChild) {
+                                                        if (cateChild.parent_Id === cate.id) {
+                                                            return (
+                                                                <option key={indexChild} value={cateChild.id}>
+                                                                    {cateChild.name}
+                                                                </option>
+                                                            );
+                                                        }
+
+                                                    })}
+                                            </optgroup>
+                                        );
+                                    })}
+                                </select>
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="">Tên sản phẩm</label>
-                                <input type="text" name="name" onChange={(e)=>setName(e.target.value)} className="form-control" required></input>
+                                <input type="text" name="name" onChange={(e) => setName(e.target.value)} className="form-control" required></input>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="">Mô tả</label>
-                                <input type="text" name="description" onChange={(e)=>setDescription(e.target.value)} className="form-control" required></input>
+                                <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} className="form-control" required></input>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="">Chi tiết</label>
-                                <input type="text" name="detail" onChange={(e)=>setDetail(e.target.value)} className="form-control" required></input>
+                                <input type="text" name="detail" onChange={(e) => setDetail(e.target.value)} className="form-control" required></input>
                             </div>
-                           
+
                         </div>
                         <div className="col-md-3">
                             <div className="mb-3">
                                 <label htmlFor="">Số lượng</label>
-                                <input type="number" name="qty" onChange={(e)=>setQty(e.target.value)} className="form-control" required></input>
+                                <input type="number" name="qty" onChange={(e) => setQty(e.target.value)} className="form-control" required></input>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="">Giá</label>
-                                <input type="number" name="price" onChange={(e)=>setPrice(e.target.value)} className="form-control" required></input>
+                                <input type="number" name="price" onChange={(e) => setPrice(e.target.value)} className="form-control" required></input>
                             </div>
                             {/* <div className="mb-3">
                                 <label htmlFor="">Sắp xếp</label>
@@ -110,7 +159,7 @@ function ProductCreate(){
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="">Trạng thái</label>
-                                <select name="status" onChange={(e)=>setStatus(e.target.value)} className="form-control">
+                                <select name="status" onChange={(e) => setStatus(e.target.value)} className="form-control">
                                     <option value="1">Xuất bản</option>
                                     <option value="2">Chưa xuất bản</option>
                                 </select>
