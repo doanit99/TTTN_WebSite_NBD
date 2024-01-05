@@ -55,6 +55,7 @@ function ProductShow() {
                         </strong>
                     </div>
                     <div className="col-md-6 text-end">
+                        <Link to="/admin/product" className="btn btn-info btn-success"><BiArrowBack />Quay về danh sách</Link>
                         <Link to={"/admin/product/update/" + product.id} className="btn btn-info btn-success"><BiArrowBack />Cập nhật</Link>
                         <button className="btn btn-sm btn-danger p-2" onClick={() => ProductDelete(product.id)}><FaSave />Xóa</button>
                     </div>

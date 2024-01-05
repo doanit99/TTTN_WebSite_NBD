@@ -116,6 +116,34 @@ namespace DoAnThucTap_NBD.Controllers
             return NoContent();
         }
 
+        //Login
+        [HttpGet("{userName}/{pass}")]
+        public async Task<ActionResult<IEnumerable<User>>> Login(string userName, string pass)
+        {
+            if (_context.Categories == null)
+            {
+                return NotFound();
+            }
+
+            if (userName != null && pass != null)
+            {
+                var data = await _context.Users
+                    .Where(p => p.UserName == userName && p.Password == pass)
+                    .ToListAsync();
+
+                if (data == null || !data.Any())
+                {
+                    return NotFound("Đăng nhập thất bại");
+                }
+
+                return Ok(data);
+            }
+            else
+            {
+                return BadRequest("Đăng nhập thất bại");
+            }
+        }
+
         private bool UserExists(int id)
         {
             return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();

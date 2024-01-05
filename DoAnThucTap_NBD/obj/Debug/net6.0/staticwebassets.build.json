@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xvIR0fW+XJ+LCFOmMz76QrUEWPG1VU16q+PwN59dcFI=",
+  "Hash": "Gc+LxTX8jfrUSSvoKvnazlEDNQHVgmPksCERBXG9rdo=",
   "Source": "DoAnThucTap_Api_NBD",
   "BasePath": "_content/DoAnThucTap_Api_NBD",
   "Mode": "Default",
@@ -102,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\download.jpg",
+      "SourceId": "DoAnThucTap_Api_NBD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "BasePath": "_content/DoAnThucTap_Api_NBD",
+      "RelativePath": "images/products/download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\download.jpg"
+    },
+    {
       "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\greenApple.png",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\greenApple.png"
+    },
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-14-pro_2__5.png",
+      "SourceId": "DoAnThucTap_Api_NBD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "BasePath": "_content/DoAnThucTap_Api_NBD",
+      "RelativePath": "images/products/iphone-14-pro_2__5.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\iphone-14-pro_2__5.png"
     },
     {
       "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp",

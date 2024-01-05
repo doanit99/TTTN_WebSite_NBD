@@ -36,6 +36,7 @@ function BrandShow() {
                     </strong>
                 </div>
                 <div className="col-md-6 text-end">
+                    <Link  to="/admin/brand" className="btn btn-info btn-success"><BiArrowBack/>Quay về danh sách</Link>
                     <Link to={"/admin/brand/update/"+brand.id} className="btn btn-info btn-success"><BiArrowBack />Cập nhật</Link>
                     <button className="btn btn-sm btn-danger p-2" onClick={()=>BrandDelete(brand.id)}><FaSave />Xóa</button>
                 </div>

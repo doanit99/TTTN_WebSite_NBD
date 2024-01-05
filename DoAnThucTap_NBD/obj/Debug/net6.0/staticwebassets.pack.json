@@ -21,8 +21,16 @@
       "PackagePath": "staticwebassets\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\download.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\download.jpg"
+    },
+    {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\greenApple.png",
       "PackagePath": "staticwebassets\\images\\products\\greenApple.png"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-14-pro_2__5.png",
+      "PackagePath": "staticwebassets\\images\\products\\iphone-14-pro_2__5.png"
     },
     {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp",

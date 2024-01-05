@@ -5,19 +5,20 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ProductService from '../../../services/ProductServices';
 import { FaStar } from 'react-icons/fa';
-
-function ProductDetail(){
+function ProductDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     // const [products, setProducts] = useState([]);
     // const [title, setTitle] = useState("");
-    
+    const [quantity, setQuantity] = useState(1);
+
+
     // document.title = title;
     useEffect(function () {
 
         (async function () {
             try {
-                
+
                 const result = await ProductService.getById(id);
                 setProduct(result.data);
                 // setProducts(result.product_other);
@@ -28,7 +29,35 @@ function ProductDetail(){
         })();
 
     }, [id]);
-    return(
+
+    const addToCart = () => {
+        // Retrieve the existing cart from localStorage or initialize an empty array
+        const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Check if the product is already in the cart
+        const existingProduct = existingCart.find((item) => item.id === product.id);
+
+        if (existingProduct) {
+            // If the product is already in the cart, update its quantity
+            existingProduct.quantity += quantity;
+        } else {
+            // If the product is not in the cart, add it
+            const newProduct = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: quantity,
+            };
+            existingCart.push(newProduct);
+        }
+
+        // Save the updated cart to localStorage
+        localStorage.setItem("cart", JSON.stringify(existingCart));
+
+        // You can also provide some feedback to the user, e.g., a toast notification
+        alert("Product added to cart!");
+    };
+    return (
 
         <>
             <div>
@@ -47,15 +76,15 @@ function ProductDetail(){
                 <div class="container">
                     <div class="row single-product-area">
                         <div class="col-lg-5 col-md-6">
-                           {/* Product Details Left */}
+                            {/* Product Details Left */}
                             <div class="product-details-left">
                                 <div class="product-details-images slider-navigation-1">
                                     <div class="lg-image">
-                                    <img src={urlImageFE+"products/"+ product.image} className="img-fluid" alt="hinh san pham"/>
+                                        <img src={urlImageFE + "products/" + product.image} className="img-fluid" alt="hinh san pham" />
                                     </div>
-                                    
+
                                 </div>
-                                
+
                             </div>
                             {/*// Product Details Left */}
                         </div>
@@ -67,11 +96,11 @@ function ProductDetail(){
                                     <span class="product-details-ref">Reference: demo_15</span>
                                     <div class="rating-box pt-20">
                                         <ul class="rating rating-with-review-item">
-                                            <li><i><FaStar/></i></li>
-                                            <li><i><FaStar/></i></li>
-                                            <li><i><FaStar/></i></li>
-                                            <li class="no-star"> <i><FaStar/></i></li>
-                                            <li class="no-star"> <i><FaStar/></i></li>                                          
+                                            <li><i><FaStar /></i></li>
+                                            <li><i><FaStar /></i></li>
+                                            <li><i><FaStar /></i></li>
+                                            <li class="no-star"> <i><FaStar /></i></li>
+                                            <li class="no-star"> <i><FaStar /></i></li>
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
@@ -83,20 +112,36 @@ function ProductDetail(){
                                             </span>
                                         </p>
                                     </div>
-                                    <div class="single-add-to-cart">
+
+                                    <div className="quantity form-group">
+                                        <label htmlFor="quantity">Quantity</label>
+                                        <div className="input-group">
+                                            <div className="input-group-prepend">
+                                                <button className="btn btn-outline-secondary" type="button" onClick={() => setQuantity(Math.max(quantity - 1, 1))}>-</button>
+                                            </div>
+                                            <input type="text" className="form-control text-center" id="quantity" value={quantity} readOnly />
+                                            <div className="input-group-append">
+                                                <button className="btn btn-outline-secondary" type="button" onClick={() => setQuantity(quantity + 1)}>+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+
+                                    {/* <div class="single-add-to-cart">
                                         <form action="#" class="cart-quantity">
                                             <div class="quantity">
                                                 <label>Quantity</label>
                                                 <div class="cart-plus-minus">
                                                 {product.qty}
-                                                    {/* <input class="cart-plus-minus-box" defaultValue="1" type="text"/>
+                                                    <input class="cart-plus-minus-box" defaultValue="1" type="text"/>
                                                     <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div> */}
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                 </div>
                                             </div>
                                             <button class="add-to-cart" type="submit">Add to cart</button>
                                         </form>
-                                    </div>
+                                    </div> */}
                                     <div class="product-additional-info">
                                         <div class="product-social-sharing">
                                             <ul>
@@ -109,10 +154,12 @@ function ProductDetail(){
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
+
+
 
             <div class="product-area pt-40">
                 <div class="container">
@@ -120,10 +167,10 @@ function ProductDetail(){
                         <div class="col-lg-12">
                             <div class="li-product-tab">
                                 <ul class="nav li-product-menu">
-                                   <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
-                                   <li><a data-toggle="tab" href="#product-details"><span>Product Details</span></a></li>
-                                   <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
-                                </ul>               
+                                    <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
+                                    <li><a data-toggle="tab" href="#product-details"><span>Product Details</span></a></li>
+                                    <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
+                                </ul>
                             </div>
                             {/* Begin Li's Tab Menu Content Area */}
                         </div>
@@ -137,7 +184,7 @@ function ProductDetail(){
                         <div id="product-details" class="tab-pane" role="tabpanel">
                             <div class="product-details-manufacturer">
                                 <a href="#">
-                                    <img src="../frontend/images/product-details/1.jpg" alt="Product Manufacturer Image"/>
+                                    <img src="../frontend/images/product-details/1.jpg" alt="Product Manufacturer Image" />
                                 </a>
                                 <p><span>Reference</span> demo_7</p>
                                 <p><span>Reference</span> demo_7</p>
@@ -175,15 +222,15 @@ function ProductDetail(){
                                                     <h3 class="review-page-title">Write Your Review</h3>
                                                     <div class="modal-inner-area row">
                                                         <div class="col-lg-6">
-                                                           <div class="li-review-product">
-                                                               <img src="frontend/images/product/large-size/3.jpg" alt="Li's Product"/>
-                                                               <div class="li-review-product-desc">
-                                                                   <p class="li-product-name">Today is a good day Framed poster</p>
-                                                                   <p>
-                                                                       <span>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Design </span>
-                                                                   </p>
-                                                               </div>
-                                                           </div>
+                                                            <div class="li-review-product">
+                                                                <img src="frontend/images/product/large-size/3.jpg" alt="Li's Product" />
+                                                                <div class="li-review-product-desc">
+                                                                    <p class="li-product-name">Today is a good day Framed poster</p>
+                                                                    <p>
+                                                                        <span>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Design </span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="li-review-content">
@@ -196,11 +243,11 @@ function ProductDetail(){
                                                                                 <label>Your Rating</label>
                                                                                 <span>
                                                                                     <select class="star-rating">
-                                                                                      <option defaultValue="1">1</option>
-                                                                                      <option defaultValue="2">2</option>
-                                                                                      <option defaultValue="3">3</option>
-                                                                                      <option defaultValue="4">4</option>
-                                                                                      <option defaultValue="5">5</option>
+                                                                                        <option defaultValue="1">1</option>
+                                                                                        <option defaultValue="2">2</option>
+                                                                                        <option defaultValue="3">3</option>
+                                                                                        <option defaultValue="4">4</option>
+                                                                                        <option defaultValue="5">5</option>
                                                                                     </select>
                                                                                 </span>
                                                                             </p>
@@ -212,12 +259,12 @@ function ProductDetail(){
                                                                                 <p class="feedback-form-author">
                                                                                     <label htmlFor="author">Name<span class="required">*</span>
                                                                                     </label>
-                                                                                    <input id="author" name="author" defaultValue="" size="30" aria-required="true" type="text"/>
+                                                                                    <input id="author" name="author" defaultValue="" size="30" aria-required="true" type="text" />
                                                                                 </p>
                                                                                 <p class="feedback-form-author feedback-form-email">
                                                                                     <label htmlFor="email">Email<span class="required">*</span>
                                                                                     </label>
-                                                                                    <input id="email" name="email" defaultValue="" size="30" aria-required="true" type="text"/>
+                                                                                    <input id="email" name="email" defaultValue="" size="30" aria-required="true" type="text" />
                                                                                     <span class="required"><sub>*</sub> Required fields</span>
                                                                                 </p>
                                                                                 <div class="feedback-btn pb-15">
@@ -235,7 +282,7 @@ function ProductDetail(){
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>   
+                                    </div>
                                     {/* Quick View | Modal Area End Here */}
                                 </div>
                             </div>
@@ -243,7 +290,7 @@ function ProductDetail(){
                     </div>
                 </div>
             </div>
-           
+
         </>
     );
 }

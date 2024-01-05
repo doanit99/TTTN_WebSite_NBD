@@ -1,5 +1,22 @@
+import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 function Header(){
+    const [cart, setCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [totalItemCount, setTotalItemCount] = useState(0);
+
+    useEffect(() => {
+        // Calculate total price
+        const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
+        // Calculate total item count
+        const totalItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+        // Update state with totalPrice and totalItemCount
+        setTotalPrice(totalPrice);
+        setTotalItemCount(totalItemCount);
+    }, [cart]);
     return(
         <>
          {/* Begin Header Middle Area */}
@@ -9,7 +26,7 @@ function Header(){
                             {/* Begin Header Logo Area */}
                             <div className="col-lg-3">
                                 <div className="logo pb-sm-30 pb-xs-30">
-                                    <a href="index.html">
+                                    <a href="/">
                                         <img src="../frontend/images/menu/logo/1.jpg" alt=""/>
                                     </a>
                                 </div>
@@ -108,14 +125,14 @@ function Header(){
                                         {/* Header Middle Wishlist Area End Here */}
                                         {/* Begin Header Mini Cart Area */}
                                         <li className="hm-minicart">
-                                            <div className="hm-minicart-trigger">
-                                                <span className="item-icon"></span>
-                                                <span className="item-text">£80.00
-                                                    <span className="cart-item-count">2</span>
+                                            <Link to="/gio-hang" className="hm-minicart-trigger">
+                                                <span className="item-icon">£{totalPrice.toFixed(2)}</span>
+                                                <span className="item-text">
+                                                    <span className="cart-item-count">{totalItemCount}</span>
                                                 </span>
-                                            </div>
+                                            </Link>
                                             <span></span>
-                                            <div className="minicart">
+                                            {/* <div className="minicart">
                                                 <ul className="minicart-product-list">
                                                     <li>
                                                         <a href="single-product.html" className="minicart-product-image">
@@ -151,7 +168,7 @@ function Header(){
                                                         <span>Checkout</span>
                                                     </a>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </li>
                                         {/* Header Mini Cart Area End Here */}
                                     </ul>
