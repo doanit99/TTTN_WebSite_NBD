@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Gc+LxTX8jfrUSSvoKvnazlEDNQHVgmPksCERBXG9rdo=",
+  "Hash": "XxDJy6OLZj88wPUOzvbpOUbeuvjsAraU58kC6Ay95DQ=",
   "Source": "DoAnThucTap_Api_NBD",
   "BasePath": "_content/DoAnThucTap_Api_NBD",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\banners\\iphone-15-pro-gold-thumbnew-600x600.webp"
+    },
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\download.jfif",
+      "SourceId": "DoAnThucTap_Api_NBD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "BasePath": "_content/DoAnThucTap_Api_NBD",
+      "RelativePath": "images/brands/download.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\brands\\download.jfif"
     },
     {
       "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\download.jpg",
@@ -102,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\images\\brands\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\samsung.jfif",
+      "SourceId": "DoAnThucTap_Api_NBD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "BasePath": "_content/DoAnThucTap_Api_NBD",
+      "RelativePath": "images/brands/samsung.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\brands\\samsung.jfif"
+    },
+    {
       "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\download.jpg",
       "SourceId": "DoAnThucTap_Api_NBD",
       "SourceType": "Discovered",
@@ -134,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\greenApple.png"
+    },
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-13_2_.webp",
+      "SourceId": "DoAnThucTap_Api_NBD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "BasePath": "_content/DoAnThucTap_Api_NBD",
+      "RelativePath": "images/products/iphone-13_2_.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\iphone-13_2_.webp"
     },
     {
       "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\iphone-14-pro_2__5.png",
@@ -185,6 +236,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\peach.png"
+    },
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\samsung-galaxy-m14.webp",
+      "SourceId": "DoAnThucTap_Api_NBD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "BasePath": "_content/DoAnThucTap_Api_NBD",
+      "RelativePath": "images/products/samsung-galaxy-m14.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\samsung-galaxy-m14.webp"
+    },
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\samsung-galaxy-z-flip-5-256gb_1_5.webp",
+      "SourceId": "DoAnThucTap_Api_NBD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\",
+      "BasePath": "_content/DoAnThucTap_Api_NBD",
+      "RelativePath": "images/products/samsung-galaxy-z-flip-5-256gb_1_5.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\samsung-galaxy-z-flip-5-256gb_1_5.webp"
     }
   ]
 }

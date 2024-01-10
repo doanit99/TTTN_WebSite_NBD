@@ -1,10 +1,16 @@
+import { Dayjs } from 'dayjs';
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Header(){
+    
+    const navigate = useNavigate();
     const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalItemCount, setTotalItemCount] = useState(0);
+    const [username, setUsername] = useState([]);
 
     useEffect(() => {
         // Calculate total price
@@ -17,6 +23,50 @@ function Header(){
         setTotalPrice(totalPrice);
         setTotalItemCount(totalItemCount);
     }, [cart]);
+
+    //
+    useEffect(() => {
+        // Function to check token status
+        const checkToken = () => {
+          const token = Cookies.get('jwtToken');
+          if (token) {
+            try {
+              const decoded = jwtDecode(token);
+              const userUsername = decoded.UserName;
+              setUsername(userUsername);
+    
+              const expirationTime = decoded.exp;
+              const currentTime = Dayjs();
+    
+              console.log('Current Time:', currentTime.format());
+              console.log('Expiration Time:', Dayjs(expirationTime).format());
+    
+              if (currentTime.isAfter(expirationTime)) {
+                console.log('Token expired. Logging out.');
+                Logout();
+              }
+            } catch (error) {
+              console.error('Error decoding JWT token:', error);
+            }
+          }
+        };
+    
+        // Initial check when component mounts
+        checkToken();
+    
+        // Set up interval to check token every X milliseconds (adjust as needed)
+        const intervalId = setInterval(checkToken, 60000); // Check every minute
+    
+        // Clear interval on component unmount
+        return () => clearInterval(intervalId);
+      }, []);
+
+    const Logout = () => {
+        // Xóa token từ cookies
+        Cookies.remove("jwtToken");
+        // Chuyển hướng đến trang đăng nhập
+        navigate('/login');
+      };
     return(
         <>
          {/* Begin Header Middle Area */}
@@ -169,6 +219,10 @@ function Header(){
                                                     </a>
                                                 </div>
                                             </div> */}
+                                        </li>
+                                        <li>
+                                            <p>Welcome, {username}!</p>
+                                            <button onClick={Logout}>Logout</button>
                                         </li>
                                         {/* Header Mini Cart Area End Here */}
                                     </ul>

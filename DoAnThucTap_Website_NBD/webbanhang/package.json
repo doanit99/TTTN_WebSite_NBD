@@ -7,8 +7,11 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
+    "dayjs": "^1.11.10",
     "html-react-parser": "^5.0.11",
     "jquery": "^3.7.1",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
     "popper.js": "^1.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -16,6 +19,7 @@
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
+    "universal-cookie": "^7.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

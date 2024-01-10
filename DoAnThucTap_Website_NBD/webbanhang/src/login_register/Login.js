@@ -1,33 +1,48 @@
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-  
+    const cookies = new Cookies();
     const handleLogin = async () => {
-      try {
-        // Gọi API ở đây và xử lý dữ liệu đăng nhập
-        const response = await fetch('URL_API_LOGIN', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            username: username,
-            password: password,
-          }),
-        });
+        try {
+            const response = await axios.post(
+              'https://localhost:7230/api/Users/Validate/LoginModel',
+              {
+                username,
+                password,
+              },
+              {
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+              }
+            );
   
-        if (response.ok) {
-          // Xử lý khi đăng nhập thành công
-          console.log('Login successful');
+        const token = response.data.data;       
+
+        if (token) {
+            
+            // Sử dụng js-cookie để lưu trữ token trong cookie 
+            cookies.set('jwtToken', token);
+            // Chuyển hướng đến một route khác 
+            navigate('/');
+
         } else {
-          // Xử lý khi đăng nhập thất bại
-          console.error('Login failed');
+            console.error('Token is invalid or not received from the server.');
+            alert('Đăng nhập thành công!');
         }
+       
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Đăng nhập thất bại:', error);
       }
-    }; 
+    };
+    
+    
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
@@ -37,7 +52,7 @@ const Login = () => {
                             <h3 className="font-weight-bold">Login</h3>
                         </div>
                         <div className="card-body">
-                            <form action="login_script.php" method="POST">
+                            
                                 <div className="form-group">
                                     <div className="input-group">
                                         <div className="input-group-prepend">
@@ -49,6 +64,9 @@ const Login = () => {
                                             type="text"
                                             placeholder="Username or Email"
                                             className="form-control"
+                                            
+                                            value={username}
+                                            onChange={(e) => setUsername(e.target.value)}
                                             required
                                         />
                                     </div>
@@ -64,6 +82,9 @@ const Login = () => {
                                             type="password"
                                             placeholder="Enter your Password"
                                             className="form-control"
+                                          
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
                                             required
                                         />
                                         <div className="input-group-append">
@@ -99,7 +120,7 @@ const Login = () => {
                                     onClick={handleLogin}>
                                     Login
                                 </button>
-                            </form>
+                           
                         </div>
                         <div className="card-footer text-center">
                             <p className="mb-0">

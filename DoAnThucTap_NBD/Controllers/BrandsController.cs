@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace DoAnThucTap_NBD.Controllers
 
         // GET: api/Brands
         [HttpGet]
+        
         public async Task<ActionResult<IEnumerable<Brand>>> GetBrands()
         {
           if (_context.Brands == null)

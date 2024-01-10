@@ -1,24 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using DoAnThucTap_Api_NBD.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using WebApi_DoAnThucTap_NBD.Data;
 using WebApi_DoAnThucTap_NBD.Models;
 
 namespace DoAnThucTap_NBD.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly AppSetting _appSettings;
 
-        public UsersController(DataContext context)
+        public UsersController(DataContext context, IOptionsMonitor<AppSetting> optionsMonitor)
         {
             _context = context;
+            _appSettings = optionsMonitor.CurrentValue;
         }
 
         // GET: api/Users
@@ -117,31 +125,57 @@ namespace DoAnThucTap_NBD.Controllers
         }
 
         //Login
-        [HttpGet("{userName}/{pass}")]
-        public async Task<ActionResult<IEnumerable<User>>> Login(string userName, string pass)
+        [HttpPost("LoginModel")]
+        public IActionResult Validate([FromForm] LoginModel model)
         {
-            if (_context.Categories == null)
+            var user = _context.Users.SingleOrDefault(p =>
+            p.UserName == model.UserName && model.Password == p.Password);
+            if(user == null)
             {
-                return NotFound();
-            }
-
-            if (userName != null && pass != null)
-            {
-                var data = await _context.Users
-                    .Where(p => p.UserName == userName && p.Password == pass)
-                    .ToListAsync();
-
-                if (data == null || !data.Any())
+                return Ok(new ApiResponse
                 {
-                    return NotFound("Đăng nhập thất bại");
-                }
+                    Success = false,
+                    Message = "Invalid username/password"
+                });
+            }
 
-                return Ok(data);
-            }
-            else
+            return Ok(new ApiResponse
             {
-                return BadRequest("Đăng nhập thất bại");
-            }
+                Success = true,
+                Message = "Authenticate success",
+                Data = GenerateToken(user),
+               
+            });
+
+           
+        }
+        private string GenerateToken(User user)
+        {
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+
+            var secretKeyBytes = Encoding.UTF8.GetBytes(_appSettings.SecretKey);
+
+            var tokenDescription = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]  
+                {
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim("UserName", user.UserName),
+                    new Claim("Id", user.Id.ToString()),
+
+                    //roles
+
+                    new Claim("TokenId", Guid.NewGuid().ToString())
+                }),
+                Expires = DateTime.UtcNow.AddMinutes(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(secretKeyBytes),
+                 SecurityAlgorithms.HmacSha256Signature)
+
+            };
+            var token = jwtTokenHandler.CreateToken(tokenDescription);
+            return jwtTokenHandler.WriteToken(token);
+
         }
 
         private bool UserExists(int id)
