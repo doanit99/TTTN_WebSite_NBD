@@ -3,14 +3,16 @@ import LayoutAdmin from './layouts/LayoutAdmin';
 import RouterSite from './routers';
 import LayoutSite from './layouts/LayoutSite';
 import Login from './login_register/Login';
+import Register from './login_register/Resgiter';
 
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<Login />}>  
-        </Route>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/register' element={<Register />}/>    
+       
         <Route path='/' element={<LayoutSite/>}>
           {RouterSite.RouterPublic.map(function(route,index){
             const Page=route.conponent;

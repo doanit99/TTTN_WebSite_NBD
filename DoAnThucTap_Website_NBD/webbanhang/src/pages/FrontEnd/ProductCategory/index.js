@@ -16,7 +16,7 @@ function ProductCategory() {
                 const infocategory = await CategoryService.getById(id);
                 const catid = infocategory.data.id;
                 setTitle(infocategory.data.name);
-                const infoproduct = await ProductService.getProductByCategoryParent(catid);
+                const infoproduct = await ProductService.getProductHome(catid);
                 setProducts(infoproduct.data);
             } catch (error) {
                 setProducts([]);

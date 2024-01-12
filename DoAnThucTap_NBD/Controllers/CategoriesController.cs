@@ -138,7 +138,7 @@ namespace DoAnThucTap_NBD.Controllers
             return slug;
         }
 
-        //GetCategoryByParentId
+        //Get Category ByParent Id
         [HttpGet("{parentId}")]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategoryByParentId(int parentId)
         {
@@ -166,6 +166,21 @@ namespace DoAnThucTap_NBD.Controllers
             }
         }
 
+        //Get All Category ByParent Id minus parent category
+        [HttpGet()]
+        public async Task<ActionResult<IEnumerable<Category>>> GetAllCategoryMinusParentCate()
+        {
+            if (_context.Categories == null)
+            {
+                return NotFound();
+            }    
+                var categories = await _context.Categories
+                    .Where(p => p.Parent_Id != 1)
+                    .ToListAsync();
+
+                return Ok(categories);
+            
+        }
         private bool CategoryExists(int id)
         {
             return (_context.Categories?.Any(e => e.Id == id)).GetValueOrDefault();

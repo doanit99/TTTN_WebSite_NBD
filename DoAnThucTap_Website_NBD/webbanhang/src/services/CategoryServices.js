@@ -22,6 +22,10 @@ function getCategoryByParentId(parentId){
     return httpAxios.get(`Categories/GetCategoryByParentId/${parentId}`);
 }
 
+function getAllCateMinusParentCate(){
+    return httpAxios.get('Categories/GetAllCategoryMinusParentCate');
+}
+
 const Categoryservice ={
     
     getAll:getAll,
@@ -29,7 +33,8 @@ const Categoryservice ={
     create:create,
     update:update,
     remove:remove,
-    getCategoryByParentId:getCategoryByParentId
+    getCategoryByParentId:getCategoryByParentId,
+    getAllCateMinusParentCate:getAllCateMinusParentCate
 }
 
 export default Categoryservice;

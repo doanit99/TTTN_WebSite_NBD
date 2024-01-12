@@ -264,9 +264,55 @@ namespace DoAnThucTap_NBD.Controllers
                 return BadRequest("Danh mục không được chỉ định hoặc không hợp lệ.");
             }
         }
+
+       
+
+
+        //seach by name product
+        [HttpGet("{keysearch}")]
+        public async Task<ActionResult<IEnumerable<Product>>> Search(string keysearch)
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+              
+                var search = await _context.Products.Where(c => c.Name.Contains(keysearch))
+                    .Take(8)
+                    .ToListAsync();            
+
+                if (search == null || !search.Any())
+                {
+                    return NotFound("No products found matching the search criteria.");
+                }
+
+                return Ok(search);
+           
+        }
         private bool ProductExists(int id)
         {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+
+        //get product sale
+        [HttpGet()]
+        public async Task<ActionResult<IEnumerable<Product>>> GetSaledProducts()
+        {
+            if (_context.ProductSales == null)
+            {
+                return NotFound();
+            }
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+            var saledProducts = await _context.Products
+      .Where(p => p.ProductSales.Any(ps => ps.Product_Id == p.Id && ps.Date_Begin <= DateTime.Now && ps.Date_End >= DateTime.Now))
+      .ToListAsync();
+
+
+            return Ok(saledProducts);
         }
     }
 }

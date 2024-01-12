@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DoAnThucTap_Api_NBD.Models;
+using Microsoft.EntityFrameworkCore;
 using WebApi_DoAnThucTap_NBD.Models;
 
 namespace WebApi_DoAnThucTap_NBD.Data
@@ -19,6 +20,7 @@ namespace WebApi_DoAnThucTap_NBD.Data
         public DbSet<Order_detail> Order_details { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<ProductSale> ProductSales { get; set; }
 
 
     }

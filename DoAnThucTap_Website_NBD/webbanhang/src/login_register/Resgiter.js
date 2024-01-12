@@ -1,22 +1,29 @@
 import axios from 'axios';
-import Cookies from 'universal-cookie';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-
-    const cookies = new Cookies();
-    const handleLogin = async () => {
+    const handleRegister = async () => {
         try {
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
             const response = await axios.post(
-                'https://localhost:7230/api/Users/Validate/LoginModel',
+                'https://localhost:7230/api/Users/Validate1/RegisterModel',
                 {
                     username,
+                    email,
                     password,
+                    confirmPassword,
                 },
                 {
                     headers: {
@@ -29,33 +36,32 @@ const Login = () => {
 
             if (token) {
 
-                // Sử dụng js-cookie để lưu trữ token trong cookie 
-                cookies.set('jwtToken', token);
                 // Chuyển hướng đến một route khác 
-                navigate('/');
-                alert('Đăng nhập thành công!');
+                navigate('/login');
+                alert('Đăng kí thành công!');
 
             } else {
                 console.error('Token is invalid or not received from the server.');
-                alert('Đăng nhập thất bại!');
+                alert('Đăng kí thất bại!');
             }
 
         } catch (error) {
-            console.error('Đăng nhập thất bại:', error);
-            alert('Đăng nhập thất bại!');
+            console.error('Đăng kí thất bại:', error);
+            alert('Đăng kí thất bại!');
         }
     };
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
+
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6">
                     <div className="card">
                         <div className="card-header">
-                            <h3 className="font-weight-bold">Login</h3>
+                            <h3 className="font-weight-bold">Register</h3>
                         </div>
                         <div className="card-body">
 
@@ -68,15 +74,33 @@ const Login = () => {
                                     </div>
                                     <input
                                         type="text"
-                                        placeholder="Username or Email"
+                                        placeholder="Username"
                                         className="form-control"
-
                                         value={username}
                                         onChange={(e) => setUsername(e.target.value)}
                                         required
                                     />
                                 </div>
                             </div>
+
+                            <div className="form-group">
+                                <div className="input-group">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">
+                                            <i className="far fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        className="form-control"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
                             <div className="form-group">
                                 <div className="input-group">
                                     <div className="input-group-prepend">
@@ -108,27 +132,50 @@ const Login = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="form-check d-flex align-items-center">
-                               
-                                <a
-                                    href="#"
-                                    id="forgot"
-                                    className="ml-auto font-weight-bold"
-                                >
-                                    Forgot password?
-                                </a>
+
+                            <div className="form-group">
+                                <div className="input-group">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">
+                                            <i className="fas fa-lock"></i>
+                                        </span>
+                                    </div>
+                                    <input
+                                        type={passwordVisible ? 'text' : 'password'}
+                                        placeholder="Enter your Confirm Password"
+                                        className="form-control"
+
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        required
+                                    />
+                                    <div className="input-group-append">
+                                        <button
+                                            className="btn btn-outline-secondary"
+                                            type="button"
+                                            onClick={togglePasswordVisibility}
+                                        >
+                                            {passwordVisible ? (
+                                                <i className="far fa-eye"></i>
+                                            ) : (
+                                                <i className="far fa-eye-slash"></i>
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
+
                             <button
                                 className="btn btn-primary btn-block"
-                                onClick={handleLogin}>
-                                Login
+                                onClick={handleRegister}>
+                                Register
                             </button>
 
                         </div>
                         <div className="card-footer text-center">
                             <p className="mb-0">
-                                Don't have an account?{' '}
-                                <a href="/register" className="font-weight-bold">Sign up</a>
+                                You have an account?{' '}
+                                <a href="/login" className="font-weight-bold">Sign in</a>
                             </p>
                         </div>
                         <div className="mx-3 my-2 py-2 border-top">
@@ -181,4 +228,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

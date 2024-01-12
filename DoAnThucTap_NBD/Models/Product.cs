@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DoAnThucTap_Api_NBD.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi_DoAnThucTap_NBD.Models
@@ -23,5 +24,7 @@ namespace WebApi_DoAnThucTap_NBD.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public int? UpdateBy { get; set; }
         public int? Status { get; set; }
+
+        public ICollection<ProductSale> ProductSales { get; set; }
     }
 }

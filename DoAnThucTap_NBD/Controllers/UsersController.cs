@@ -129,7 +129,8 @@ namespace DoAnThucTap_NBD.Controllers
         public IActionResult Validate([FromForm] LoginModel model)
         {
             var user = _context.Users.SingleOrDefault(p =>
-            p.UserName == model.UserName && model.Password == p.Password);
+            p.UserName == model.UserName || p.Email == model.UserName
+            && model.Password == p.Password );
             if(user == null)
             {
                 return Ok(new ApiResponse
@@ -149,6 +150,7 @@ namespace DoAnThucTap_NBD.Controllers
 
            
         }
+        //create token jwt login
         private string GenerateToken(User user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
@@ -176,6 +178,50 @@ namespace DoAnThucTap_NBD.Controllers
             var token = jwtTokenHandler.CreateToken(tokenDescription);
             return jwtTokenHandler.WriteToken(token);
 
+        }
+
+
+        //Register
+        [HttpPost("RegisterModel")]
+        public IActionResult Validate1([FromForm] RegisterModel model)
+        {
+            // Check if the username is already taken
+            if (_context.Users.Any(p => p.UserName == model.UserName))
+            {
+                return Ok(new ApiResponse
+                {
+                    Success = false,
+                    Message = "Username already taken"
+                });
+            }
+            // Check if password and confirm password match
+            if (model.Password != model.ConfirmPassword)
+            {
+                return Ok(new ApiResponse
+                {
+                    Success = false,
+                    Message = "Password and Confirm Password do not match"
+                });
+            }
+
+            // Create a new user
+            var newUser = new User
+            {
+                UserName = model.UserName,
+                Password = model.Password, // You should hash the password before storing it
+                Email = model.Email,
+                // Add other user properties as needed
+            };
+
+            _context.Users.Add(newUser);
+            _context.SaveChanges();
+
+            return Ok(new ApiResponse
+            {
+                Success = true,
+                Message = "Registration successful",
+                Data = GenerateToken(newUser)
+            });
         }
 
         private bool UserExists(int id)

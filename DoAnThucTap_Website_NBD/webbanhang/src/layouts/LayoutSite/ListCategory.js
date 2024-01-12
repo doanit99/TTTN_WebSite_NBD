@@ -1,4 +1,3 @@
-import { TfiHandPointRight } from 'react-icons/tfi';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CategoryService from "../../services/CategoryServices";
@@ -8,7 +7,7 @@ function ListCategory() {
     useEffect(function () {
         (async function () {
             try {
-                const result = await CategoryService.getCategoryByParentId(1);
+                const result = await CategoryService.getAllCateMinusParentCate();
                 setListCategory(result.data);
             }
             catch (error) {
