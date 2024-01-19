@@ -26,13 +26,18 @@ function getProductAll(limit, page){
     return httpAxios.get(`Products/GetAllProduct/${limit}/${page}`);
 }
 
-function getProductByCategoryParent(categoryIdParent){
-    return httpAxios.get(`Products/GetProductByCategoryParent/${categoryIdParent}`);
+function getProductByCategoryParent(categoryIdParent,limit, page){
+    return httpAxios.get(`Products/GetProductByCategoryParent/${categoryIdParent}/${limit}/${page}`);
 }
 
 function Search(keyWord){
     return httpAxios.get(`Products/Search/${keyWord}`);
 }
+
+function GetProductSale(){
+    return httpAxios.get('Products/GetSaledProducts');
+}
+
 const ProductService ={
     
     getAll:getAll,
@@ -43,7 +48,8 @@ const ProductService ={
     getProductHome:getProductHome,
     getProductAll:getProductAll,
     getProductByCategoryParent:getProductByCategoryParent,
-    Search:Search
+    Search:Search,
+    GetProductSale:GetProductSale
 }
 
 export default ProductService;

@@ -41,8 +41,10 @@ function Menu() {
                     <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div className="bg-white py-2 collapse-inner rounded">
                             <h6 className="collapse-header">Custom Components:</h6>
+                            <a className="collapse-item" href="/admin/banner">Banner</a>
                             <a className="collapse-item" href="/admin/brand">Thương hiệu</a>
                             <a className="collapse-item" href="/admin/product">Sản phẩm</a>
+                            <a className="collapse-item" href="/admin/productsale">Sản phẩm giảm giá</a>
                         </div>
                     </div>
                 </li>

@@ -11,20 +11,20 @@ using WebApi_DoAnThucTap_NBD.Models;
 
 namespace DoAnThucTap_NBD.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    public class BannersController : ControllerBase
+    public class SlidersController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public BannersController(DataContext context)
+        public SlidersController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Banners
+        // GET: api/Sliders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Banner>>> GetSliders()
+        public async Task<ActionResult<IEnumerable<Slider>>> GetSliders()
         {
           if (_context.Sliders == null)
           {
@@ -33,34 +33,34 @@ namespace DoAnThucTap_NBD.Controllers
             return await _context.Sliders.ToListAsync();
         }
 
-        // GET: api/Banners/5
+        // GET: api/Sliders/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Banner>> GetBanner(int id)
+        public async Task<ActionResult<Slider>> GetSlider(int id)
         {
           if (_context.Sliders == null)
           {
               return NotFound();
           }
-            var banner = await _context.Sliders.FindAsync(id);
+            var slider = await _context.Sliders.FindAsync(id);
 
-            if (banner == null)
+            if (slider == null)
             {
                 return NotFound();
             }
 
-            return banner;
+            return slider;
         }
 
-        // PUT: api/Banners/5
+        // PUT: api/Sliders/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBanner(int id,[FromForm] Banner banner, IFormFile image)
+        public async Task<IActionResult> PutSlider(int id,[FromForm] Slider slider, IFormFile image)
         {
             var existingBanner = await _context.Sliders.FindAsync(id);
 
             if (existingBanner == null)
             {
-                return NotFound("Không tìm thấy banner");
+                return NotFound("Không tìm thấy Slider");
             }
 
             if (image != null)
@@ -76,12 +76,12 @@ namespace DoAnThucTap_NBD.Controllers
                 existingBanner.Image = uniqueFileName;
             }
 
-            existingBanner.Name = banner.Name;
-            existingBanner.Link = banner.Link;
-            existingBanner.Position = banner.Position;
-            existingBanner.Description = banner.Description;
-            existingBanner.UpdateBy = banner.UpdateBy;
-            existingBanner.Status = banner.Status;
+            existingBanner.Name = slider.Name;
+            existingBanner.Link = slider.Link;
+            existingBanner.Position = slider.Position;
+            existingBanner.Description = slider.Description;
+            existingBanner.UpdateBy = slider.UpdateBy;
+            existingBanner.Status = slider.Status;
 
             try
             {
@@ -90,9 +90,9 @@ namespace DoAnThucTap_NBD.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BannerExists(id))
+                if (!SliderExists(id))
                 {
-                    return NotFound("Không tìm thấy banner");
+                    return NotFound("Không tìm thấy Slider");
                 }
                 else
                 {
@@ -101,10 +101,10 @@ namespace DoAnThucTap_NBD.Controllers
             }
         }
 
-        // POST: api/Banners
+        // POST: api/Sliders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Banner>> PostBanner([FromForm] Banner banner, IFormFile image)
+        public async Task<ActionResult<Slider>> PostSlider([FromForm] Slider slider, IFormFile image)
         {
             if (image != null)
             {
@@ -116,13 +116,13 @@ namespace DoAnThucTap_NBD.Controllers
                     await image.CopyToAsync(fileStream);
                 }
 
-                banner.Image = uniqueFileName;
-                banner.CreatedAt = DateTime.Now;
+                slider.Image = uniqueFileName;
+                slider.CreatedAt = DateTime.Now;
                
 
-                _context.Sliders.Add(banner);
+                _context.Sliders.Add(slider);
                 await _context.SaveChangesAsync();
-                return Ok(banner);
+                return Ok(slider);
             }
             else
             {
@@ -130,27 +130,27 @@ namespace DoAnThucTap_NBD.Controllers
             }
         }
 
-        // DELETE: api/Banners/5
+        // DELETE: api/Sliders/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBanner(int id)
+        public async Task<IActionResult> DeleteSlider(int id)
         {
             if (_context.Sliders == null)
             {
                 return NotFound();
             }
-            var banner = await _context.Sliders.FindAsync(id);
-            if (banner == null)
+            var Slider = await _context.Sliders.FindAsync(id);
+            if (Slider == null)
             {
                 return NotFound();
             }
 
-            _context.Sliders.Remove(banner);
+            _context.Sliders.Remove(Slider);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool BannerExists(int id)
+        private bool SliderExists(int id)
         {
             return (_context.Sliders?.Any(e => e.Id == id)).GetValueOrDefault();
         }

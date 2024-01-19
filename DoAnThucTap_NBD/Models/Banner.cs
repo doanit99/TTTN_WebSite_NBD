@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi_DoAnThucTap_NBD.Models
 {
-    public class Banner
+    public class Slider
     {
         [Key]
         public int Id { get; set; }

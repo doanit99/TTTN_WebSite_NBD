@@ -10,12 +10,12 @@ function getById(id){
 }
 
 function create(data){
-    return httpAxios.post('Menus/PutMenu',data);
+    return httpAxios.post('Menus/PostMenu',data);
 
 }
 
 function update(data, id){
-    return httpAxios.put(`Menus/PostMenu/${id}`, data);
+    return httpAxios.put(`Menus/PuttMenu/${id}`, data);
 }
 
 function remove(id){

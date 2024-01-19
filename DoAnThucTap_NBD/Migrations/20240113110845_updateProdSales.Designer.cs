@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi_DoAnThucTap_NBD.Data;
 
@@ -11,9 +12,10 @@ using WebApi_DoAnThucTap_NBD.Data;
 namespace DoAnThucTap_NBD.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240113110845_updateProdSales")]
+    partial class updateProdSales
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,6 +44,9 @@ namespace DoAnThucTap_NBD.Migrations
                     b.Property<int>("Discount")
                         .HasColumnType("int");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Product_Id")
                         .HasColumnType("int");
 
@@ -53,12 +58,12 @@ namespace DoAnThucTap_NBD.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Product_Id");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductSales");
                 });
 
-            modelBuilder.Entity("WebApi_DoAnThucTap_NBD.Models.Slider", b =>
+            modelBuilder.Entity("WebApi_DoAnThucTap_NBD.Models.Banner", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -443,7 +448,7 @@ namespace DoAnThucTap_NBD.Migrations
                 {
                     b.HasOne("WebApi_DoAnThucTap_NBD.Models.Product", "Product")
                         .WithMany("ProductSales")
-                        .HasForeignKey("Product_Id")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

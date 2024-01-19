@@ -10,7 +10,7 @@ using WebApi_DoAnThucTap_NBD.Models;
 
 namespace DoAnThucTap_NBD.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ContactsController : ControllerBase
     {

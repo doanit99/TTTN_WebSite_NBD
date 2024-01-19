@@ -25,6 +25,7 @@ namespace WebApi_DoAnThucTap_NBD.Models
         public int? UpdateBy { get; set; }
         public int? Status { get; set; }
 
-        public ICollection<ProductSale> ProductSales { get; set; }
+        //public List<ProductSale> ProductSales { get; set; }
+
     }
 }

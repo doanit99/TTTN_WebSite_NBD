@@ -84,12 +84,9 @@ namespace DoAnThucTap_Api_NBD.Controllers
         // POST: api/ProductSales
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ProductSale>> PostProductSale([FromForm] ProductSale productSale)
+        public async Task<ActionResult<ProductSale>> PostProductSales([FromForm] ProductSale productSale)
         {
-          if (_context.ProductSales == null)
-          {
-              return Problem("Entity set 'DataContext.ProductSales'  is null.");
-          }
+        
             if (productSale.Discount > 100)
             {
                 return BadRequest("Phần trăm giảm không được hơn 100");
@@ -99,7 +96,7 @@ namespace DoAnThucTap_Api_NBD.Controllers
                 return BadRequest("Ngày bắt đầu không được lớn hơn ngày kết thúc");
 
             }
-            int productQty = await _context.Products.Where(p => p.Id == productSale.Product_Id)
+            int productQty = await _context.Products.Where(p => p.Id == productSale.ProductId)
                 .Select(p => p.Qty).FirstOrDefaultAsync();
             if (productSale.Qty > productQty)
             {

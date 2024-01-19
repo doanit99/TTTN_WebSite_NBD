@@ -7,10 +7,12 @@ import Productitem from "../Product/ProductItem";
 
 function ProductHome(props) {
     const [products, setProduct] = useState([]);
+    const [limit, setLimit] = useState(4);
+    const [page, setPage] = useState(1);
     useEffect(function () {
         (async function () {
             try {
-                await ProductService.getProductByCategoryParent(props.category.id).then(function (result) {
+                await ProductService.getProductByCategoryParent(props.category.id, limit, page).then(function (result) {
                     setProduct(result.data);
                 });
             } catch (error) {
@@ -20,8 +22,10 @@ function ProductHome(props) {
 
             }
         })();
-    }, [props.category.id]);
-
+    }, [props.category.id, limit, page]);
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+    };
     if (products.length != 0) {
         return (
             <div className="container my-3" style={{ background: '#fff' }}>
@@ -34,11 +38,62 @@ function ProductHome(props) {
 
                     </div>
 
-                    <div className="text-center my-3 pb-3">
-                        <Link to={"/danh-muc-san-pham/" + props.category.slug} className="btn btn-success">Xem thêm</Link>
+
+                    <div className="row">
+                        <div className="col-md-12">
+                            <ul className="pagination justify-content-center m-3">
+                                <li className="page-item">
+                                    {/* Sử dụng hàm handlePageChange để thay đổi state `page` */}
+                                    <button
+                                        className="page-link"
+                                        onClick={() => handlePageChange(page - 1)}
+                                        disabled={page === 1} // Disable nút khi ở trang đầu tiên
+                                    >
+                                        Sau
+                                    </button>
+                                </li>
+                                {/* Hiển thị các nút trang */}
+                                <li className="page-item">
+                                    <button
+                                        className="page-link"
+                                        onClick={() => handlePageChange(1)}
+                                        disabled={page === 1} // Disable nút khi đang ở trang đó
+                                    >
+                                        1
+                                    </button>
+                                </li>
+                                <li className="page-item">
+                                    <button
+                                        className="page-link"
+                                        onClick={() => handlePageChange(2)}
+                                        disabled={page === 2} // Disable nút khi đang ở trang đó
+                                    >
+                                        2
+                                    </button>
+                                </li>
+                                <li className="page-item">
+                                    <button
+                                        className="page-link"
+                                        onClick={() => handlePageChange(3)}
+                                        disabled={page === 3} // Disable nút khi đang ở trang đó
+                                    >
+                                        3
+                                    </button>
+                                </li>
+                                <li className="page-item">
+                                    {/* Sử dụng hàm handlePageChange để thay đổi state `page` */}
+                                    <button
+                                        className="page-link"
+                                        onClick={() => handlePageChange(page + 1)}
+                                        disabled
+                                        ={page === 3} // Disable nút khi ở trang cuối cùng
+                                    >
+                                        Tiếp
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
         );

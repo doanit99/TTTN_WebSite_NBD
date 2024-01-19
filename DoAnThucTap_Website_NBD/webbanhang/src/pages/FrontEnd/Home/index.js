@@ -2,6 +2,7 @@ import CategoryService from "../../../services/CategoryServices";
 import ProductHome from "./ProductHome";
 import { useEffect, useState } from "react";
 import Slider from "../../../layouts/LayoutSite/Slider";
+import ProductSale from "./ProductSale";
 
 function Home() {
     const [categorys,setCategory]=useState([]);
@@ -19,6 +20,10 @@ function Home() {
         <Slider />
         <section className="container-fluid py-4">
         <div className="container mt-5">    
+        <div className="row">
+            
+            <ProductSale/>
+        </div>
             <div className="row">
     
                 {/* <div className="col-md-3 mb-4">
@@ -39,6 +44,8 @@ function Home() {
             
     
             </div>
+
+
 
           
 

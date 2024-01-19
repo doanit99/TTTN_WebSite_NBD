@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using WebApi_DoAnThucTap_NBD.Data;
 using WebApi_DoAnThucTap_NBD.Models;
@@ -232,8 +234,8 @@ namespace DoAnThucTap_NBD.Controllers
         }
 
         //get all product by ever category parent
-        [HttpGet("{categoryIdParent}")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategoryParent(int categoryIdParent)
+        [HttpGet("{categoryIdParent}/{limit}/{page}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategoryParent(int categoryIdParent, int limit, int page)
         {
             if (_context.Products == null)
             {
@@ -252,12 +254,28 @@ namespace DoAnThucTap_NBD.Controllers
                     .Where(p => cate.Contains(p.Category_Id))
                     .ToListAsync();
 
-                if (products == null || !products.Any())
+                // Kiểm tra và xử lý giá trị của limit và page
+                if (limit <= 0 || page <= 0)
+                {
+                    return BadRequest("Invalid limit or page values. Both should be greater than zero.");
+                }
+
+                // Tính toán skip để bỏ qua các sản phẩm ở trang trước đó
+                int skipCount = (page - 1) * limit;
+
+                // Lấy danh sách sản phẩm theo limit và page
+                var paginatedProducts = products
+                    .Skip(skipCount)
+                    .Take(limit).ToList();
+
+
+
+                if (paginatedProducts == null || !paginatedProducts.Any())
                 {
                     return NotFound();
                 }
 
-                return Ok(products);
+                return Ok(paginatedProducts);
             }
             else
             {
@@ -296,7 +314,7 @@ namespace DoAnThucTap_NBD.Controllers
 
 
         //get product sale
-        [HttpGet()]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetSaledProducts()
         {
             if (_context.ProductSales == null)
@@ -307,12 +325,43 @@ namespace DoAnThucTap_NBD.Controllers
             {
                 return NotFound();
             }
+
             var saledProducts = await _context.Products
-      .Where(p => p.ProductSales.Any(ps => ps.Product_Id == p.Id && ps.Date_Begin <= DateTime.Now && ps.Date_End >= DateTime.Now))
-      .ToListAsync();
+        .Join(
+            _context.ProductSales,
+            product => product.Id,
+            productSale => productSale.ProductId,
+            (product, productSale) => new
+            {
+                ProductId = product.Id,
+                ProductSaleId = productSale.Id,
+                // Add other attributes from the Product table
+                NameSale = product.Name,
+                PriceSale = product.Price,
+                ImageSale = product.Image,
+                DescriptionSale = product.Description,
+                DetailSale = product.Detail,
+                // Add attributes from the ProductSale table
+               
+                DiscountSale = productSale.Discount,
+                QtySale = productSale.Qty,
+                Date_BeginSale = productSale.Date_Begin,
+                Date_EndSale = productSale.Date_End,
+                CreatedAtSale = productSale.CreatedAt,
+               
+            }
+        )
+        .ToListAsync();
 
 
-            return Ok(saledProducts);
+            if (saledProducts == null || saledProducts.Count == 0)
+                {
+                    return NotFound();
+                }
+
+                return Ok(saledProducts);
+            
+
         }
     }
 }
