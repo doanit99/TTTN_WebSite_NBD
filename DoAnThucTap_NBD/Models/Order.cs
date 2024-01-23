@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApi_DoAnThucTap_NBD.Models
+namespace DoAnThucTap_Api_NBD.Models
 {
     public class Order
     {
@@ -18,10 +18,10 @@ namespace WebApi_DoAnThucTap_NBD.Models
         [Column(TypeName = "nvarchar(1000)")]
         public string DeliveryAddress { get; set; }
         [Column(TypeName = "nvarchar(1000)")]
-        public string Note { get; set; }
+        public string? Note { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public int? UpdateBy { get; set; }
-        [DefaultValue(2)]
-        public int? Status { get; set; }
+       
+        public int Total { get; set; }
     }
 }

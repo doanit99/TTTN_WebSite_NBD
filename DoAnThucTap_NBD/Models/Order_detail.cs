@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApi_DoAnThucTap_NBD.Models
+namespace DoAnThucTap_Api_NBD.Models
 {
     public class Order_detail
     {

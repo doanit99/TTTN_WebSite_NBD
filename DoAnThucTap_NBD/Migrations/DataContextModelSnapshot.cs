@@ -299,7 +299,7 @@ namespace DoAnThucTap_NBD.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(1000)");
 
-                    b.Property<int?>("Status")
+                    b.Property<int?>("Total")
                         .HasColumnType("int");
 
                     b.Property<int?>("UpdateBy")

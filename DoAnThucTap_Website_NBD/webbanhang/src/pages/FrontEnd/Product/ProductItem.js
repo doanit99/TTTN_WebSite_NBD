@@ -20,7 +20,7 @@ function Productitem(props) {
                                 <strong className="text-danger fs-4 my-text">{props.product.price_sale.toLocaleString()}&#x20ab;</strong>
                             </div> */}
                             <div className="col-md-6 fs-6 pt-2 float-end">
-                                <strong>{props.product.price.toLocaleString()}&#x20ab;</strong>
+                                <strong>${props.product.price.toLocaleString()}</strong>
                             </div>
                         </div>
                     </div>
