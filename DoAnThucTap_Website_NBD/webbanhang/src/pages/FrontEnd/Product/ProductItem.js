@@ -2,7 +2,7 @@ import "../../../index.css"
 import { Link } from 'react-router-dom';
 import { urlImageFE } from '../../../config';
 function Productitem(props) {
-    const shortenedName = props.product.name.length > 25 ? `${props.product.name.substring(0, 25)}...` : props.product.name;
+    const shortenedName = props.product.name.length > 20 ? `${props.product.name.substring(0, 20)}...` : props.product.name;
     return (
        
             <div className="col-md-3 pt-4 pb-4">

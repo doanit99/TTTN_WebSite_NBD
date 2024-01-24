@@ -4,28 +4,23 @@ import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import ProductService from '../../services/ProductServices';
+import { urlImageFE } from '../../config';
 function Header() {
-
     const navigate = useNavigate();
-    const [cart] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [totalItemCount, setTotalItemCount] = useState(0);
     const [username, setUsername] = useState(null);
     const [searchResults, setSearchResults] = useState([]);
     const [keyword, setKeyword] = useState('');
-
+    const [cartItemCount, setCartItemCount] = useState(0);
     useEffect(() => {
-        // Calculate total price
-        const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        // Lấy giỏ hàng từ Local Storage
+        const cart = JSON.parse(localStorage.getItem('cart')) || {};
+        // Tính tổng số lượng sản phẩm
+        const totalItems = cart.length;
+        // Cập nhật state để hiển thị số lượng gần icon giỏ hàng
+        setCartItemCount(totalItems);
+    }, []);
 
-        // Calculate total item count
-        const totalItemCount = cart.reduce((total, item) => total + item.quantity, 0);
-
-        // Update state with totalPrice and totalItemCount
-        setTotalPrice(totalPrice);
-        setTotalItemCount(totalItemCount);
-    }, [cart]);
-
+   
     //
     useEffect(() => {
         // Function to check token status
@@ -110,7 +105,8 @@ function Header() {
                                                     {searchResults.map(result => (
                                                         <li key={result.id} className="list-group-item">
                                                             <Link to={`/danh-muc-san-pham/${result.category_Id}`} className="text-decoration-none text-dark">
-                                                                {result.name}
+                                                            <img src={urlImageFE + "products/" + result.image} alt={result.name} style={{ marginRight: '10px', width: '50px', height: '50px', objectFit: 'cover' }} />
+                                                            {result.name}
                                                             </Link>
                                                         </li>
                                                     ))}
@@ -134,14 +130,12 @@ function Header() {
                                             {/* Header Middle Wishlist Area End Here */}
 
                                             {/* Begin Header Mini Cart Area */}
-                                            <li className="hm-minicart">
-                                                <Link to="/gio-hang" className="hm-minicart-trigger">
-                                                    <span className="item-icon">£{totalPrice.toFixed(2)}</span>
-                                                    <span className="item-text">
-                                                        <span className="cart-item-count">{totalItemCount}</span>
-                                                    </span>
+                                            <li className="nav-item">
+                                                <Link to="/gio-hang" className="nav-link">
+                                                    <i className="fas fa-shopping-cart fa-lg text-danger mt-3"></i>
+                                                    <span className="badge badge-pill badge-primary position-absolute">{cartItemCount}</span>
                                                 </Link>
-                                                <span></span>
+                                               
                                             </li>
 
                                             {/* Conditionally render based on login status */}

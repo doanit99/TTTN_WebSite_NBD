@@ -2,7 +2,7 @@ import "../../../index.css"
 import { Link } from 'react-router-dom';
 import { urlImageFE } from '../../../config';
 function ProductItemSale(props) {
-    const shortenedName = props.product.nameSale.length > 25 ? `${props.product.nameSale.substring(0, 25)}...` : props.product.nameSale;
+    const shortenedName = props.product.nameSale.length > 20 ? `${props.product.nameSale.substring(0, 20)}...` : props.product.nameSale;
     const discountPercentage = props.product.discountSale / 100;
     const pricesale = props.product.priceSale - (props.product.priceSale * discountPercentage);
     return (

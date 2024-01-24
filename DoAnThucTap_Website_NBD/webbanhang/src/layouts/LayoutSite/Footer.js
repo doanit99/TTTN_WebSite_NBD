@@ -73,7 +73,7 @@ function Footer(){
                         <div className="footer-logo-wrap pt-50 pb-35">
                             <div className="row">
                                 {/* Begin Footer Logo Area */}
-                                <div className="col-lg-4 col-md-6">
+                                <div className="col-lg-8 col-md-6">
                                     <div className="footer-logo">
                                         <img src="../frontend/images/menu/logo/1.jpg" alt="Footer Logo"/>
                                         <p className="info">
@@ -96,32 +96,7 @@ function Footer(){
                                     </ul>
                                 </div>
                                 {/* Footer Logo Area End Here */}
-                                {/* Begin Footer Block Area */}
-                                <div className="col-lg-2 col-md-3 col-sm-6">
-                                    <div className="footer-block">
-                                        <h3 className="footer-block-title">Product</h3>
-                                        <ul>
-                                            <li><a href="#">Prices drop</a></li>
-                                            <li><a href="#">New products</a></li>
-                                            <li><a href="#">Best sales</a></li>
-                                            <li><a href="#">Contact us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                {/* Footer Block Area End Here */}
-                                {/* Begin Footer Block Area */}
-                                <div className="col-lg-2 col-md-3 col-sm-6">
-                                    <div className="footer-block">
-                                        <h3 className="footer-block-title">Our company</h3>
-                                        <ul>
-                                            <li><a href="#">Delivery</a></li>
-                                            <li><a href="#">Legal Notice</a></li>
-                                            <li><a href="#">About us</a></li>
-                                            <li><a href="#">Contact us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                {/* Footer Block Area End Here */}
+                                
                                 {/* Begin Footer Block Area */}
                                 <div className="col-lg-4">
                                     <div className="footer-block">
@@ -218,7 +193,7 @@ function Footer(){
                                 {/* Footer Payment Area End Here */}
                                 {/* Begin Copyright Area */}
                                 <div className="copyright text-center pt-25">
-                                    <span><a href="https://www.templatespoint.net" target="_blank">Templates Point</a></span>
+                                    <span>Desgin by Nguyen Bach Doan</span>
                                 </div>
                                 {/* Copyright Area End Here */}
                             </div>

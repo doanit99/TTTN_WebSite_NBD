@@ -6,7 +6,7 @@ function Menu() {
             <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/* Sidebar - Brand */}
-                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon rotate-n-15">
                         <i className="fas fa-laugh-wink"></i>
                     </div>
@@ -18,7 +18,7 @@ function Menu() {
 
                 {/* Nav Item - Dashboard */}
                 <li className="nav-item active">
-                    <a className="nav-link" href="index.html">
+                    <a className="nav-link" href="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -41,7 +41,7 @@ function Menu() {
                     <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div className="bg-white py-2 collapse-inner rounded">
                             <h6 className="collapse-header">Custom Components:</h6>
-                            <a className="collapse-item" href="/admin/banner">Banner</a>
+                            
                             <a className="collapse-item" href="/admin/brand">Thương hiệu</a>
                             <a className="collapse-item" href="/admin/product">Sản phẩm</a>
                             <a className="collapse-item" href="/admin/productsale">Sản phẩm giảm giá</a>
@@ -118,12 +118,7 @@ function Menu() {
                     <button className="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
 
-                {/* Sidebar Message */}
-                <div className="sidebar-card d-none d-lg-flex">
-                    <img className="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="..." />
-                    <p className="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                    <a className="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-                </div>
+               
             </ul>
         </>
 

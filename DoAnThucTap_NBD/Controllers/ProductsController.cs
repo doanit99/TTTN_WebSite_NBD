@@ -325,7 +325,7 @@ namespace DoAnThucTap_NBD.Controllers
             {
                 return NotFound();
             }
-
+            DateTime currentDate = DateTime.Now;
             var saledProducts = await _context.Products
         .Join(
             _context.ProductSales,
@@ -342,26 +342,63 @@ namespace DoAnThucTap_NBD.Controllers
                 DescriptionSale = product.Description,
                 DetailSale = product.Detail,
                 // Add attributes from the ProductSale table
-               
+
                 DiscountSale = productSale.Discount,
                 QtySale = productSale.Qty,
                 Date_BeginSale = productSale.Date_Begin,
                 Date_EndSale = productSale.Date_End,
                 CreatedAtSale = productSale.CreatedAt,
-               
+
             }
         )
+        .Where(ps => currentDate >= ps.Date_BeginSale && currentDate <= ps.Date_EndSale)
         .ToListAsync();
 
 
             if (saledProducts == null || saledProducts.Count == 0)
-                {
-                    return NotFound();
-                }
+            {
+                return NotFound();
+            }
 
-                return Ok(saledProducts);
-            
+            return Ok(saledProducts);
+
 
         }
+
+
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Product>>> GetSaledProducts()
+        //{
+        //    try
+        //    {
+        //        DateTime currentDate = DateTime.Now;
+
+        //        var saledProducts = await _context.Products
+        //            .FromSqlRaw("SELECT p.Id AS Id, p.Brand_Id, p.Category_Id, p.UpdateBy, p.Qty, p.Status, p.Slug, p.CreatedAt, ps.Id AS ProductSaleId, p.Name AS Name, p.Price AS Price, p.Image AS Image, p.Description AS Description, " +
+        //                        "p.Detail AS Detail, ps.Discount AS DiscountSale, ps.Qty AS QtySale, ps.Date_Begin AS Date_BeginSale, ps.Date_End AS Date_EndSale, ps.CreatedAt AS CreatedAtSale " +
+        //                        "FROM Products p " +
+        //                        "JOIN ProductSales ps ON p.Id = ps.ProductId " +
+        //                        "WHERE {0} BETWEEN ps.Date_Begin AND ps.Date_End", currentDate)
+        //            .ToListAsync();
+
+        //        Console.WriteLine($"Câu truy vấn SQL được tạo ra: {_context.Database.GetDbConnection().CreateCommand().CommandText}");
+
+        //        if (saledProducts == null || saledProducts.Count == 0)
+        //        {
+        //            return NotFound("Không tìm thấy sản phẩm đang giảm giá.");
+        //        }
+
+        //        return Ok(saledProducts);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"Đã xảy ra lỗi: {ex.Message}");
+        //        return StatusCode(500, "Đã xảy ra lỗi khi truy xuất sản phẩm đang giảm giá.");
+        //    }
+        //}
+
+
+
+
     }
 }

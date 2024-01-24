@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\images\\banners\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\dell.jfif",
+      "PackagePath": "staticwebassets\\images\\brands\\dell.jfif"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\download (1).jfif",
+      "PackagePath": "staticwebassets\\images\\brands\\download (1).jfif"
+    },
+    {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\download.jfif",
       "PackagePath": "staticwebassets\\images\\brands\\download.jfif"
     },
@@ -29,8 +37,20 @@
       "PackagePath": "staticwebassets\\images\\brands\\samsung.jfif"
     },
     {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\brands\\xixami.jfif",
+      "PackagePath": "staticwebassets\\images\\brands\\xixami.jfif"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\7efbd23a-5394-4002-9d67-8fad17c18121.webp",
+      "PackagePath": "staticwebassets\\images\\products\\7efbd23a-5394-4002-9d67-8fad17c18121.webp"
+    },
+    {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\download.jpg",
       "PackagePath": "staticwebassets\\images\\products\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\find_n3_-_combo_product_-_gold.webp",
+      "PackagePath": "staticwebassets\\images\\products\\find_n3_-_combo_product_-_gold.webp"
     },
     {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\greenApple.png",
@@ -49,8 +69,16 @@
       "PackagePath": "staticwebassets\\images\\products\\iphone-15-pro-gold-thumbnew-600x600.webp"
     },
     {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\oppo-find-n2-flip.webp",
+      "PackagePath": "staticwebassets\\images\\products\\oppo-find-n2-flip.webp"
+    },
+    {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\peach.png",
       "PackagePath": "staticwebassets\\images\\products\\peach.png"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\reno10_5g_-_combo_product_-_blue.webp",
+      "PackagePath": "staticwebassets\\images\\products\\reno10_5g_-_combo_product_-_blue.webp"
     },
     {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\samsung-galaxy-m14.webp",
@@ -59,6 +87,26 @@
     {
       "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\samsung-galaxy-z-flip-5-256gb_1_5.webp",
       "PackagePath": "staticwebassets\\images\\products\\samsung-galaxy-z-flip-5-256gb_1_5.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\text_ng_n_32__1_6.webp",
+      "PackagePath": "staticwebassets\\images\\products\\text_ng_n_32__1_6.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\xiaomi-13t_1__1_2.webp",
+      "PackagePath": "staticwebassets\\images\\products\\xiaomi-13t_1__1_2.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\xiaomi-poco-m5s-6gb-128gb.webp",
+      "PackagePath": "staticwebassets\\images\\products\\xiaomi-poco-m5s-6gb-128gb.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\xiaomi-redmi-note-13-pro-plus_9_.webp",
+      "PackagePath": "staticwebassets\\images\\products\\xiaomi-redmi-note-13-pro-plus_9_.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\DoAnTTTN_NBD\\DoAnThucTap_NBD\\wwwroot\\images\\products\\xiaomi-redmi-note-13_1__1_1.webp",
+      "PackagePath": "staticwebassets\\images\\products\\xiaomi-redmi-note-13_1__1_1.webp"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.DoAnThucTap_Api_NBD.Microsoft.AspNetCore.StaticWebAssets.props",

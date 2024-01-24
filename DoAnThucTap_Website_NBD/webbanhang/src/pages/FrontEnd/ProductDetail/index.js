@@ -30,6 +30,8 @@ function ProductDetail() {
 
     }, [id]);
 
+
+
     const addToCart = () => {
         // Retrieve the existing cart from localStorage or initialize an empty array
         const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -50,14 +52,17 @@ function ProductDetail() {
                 quantity: quantity,
             };
             existingCart.push(newProduct);
+
         }
 
         // Save the updated cart to localStorage
         localStorage.setItem("cart", JSON.stringify(existingCart));
 
+
         // You can also provide some feedback to the user, e.g., a toast notification
         alert("Product added to cart!");
     };
+
     return (
 
         <>
@@ -65,8 +70,8 @@ function ProductDetail() {
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">Single Product Normal</li>
+                            <li><a href="/">Home</a></li>
+                            <li class="active">{product.name}</li>
                         </ul>
                     </div>
                 </div>
@@ -91,27 +96,31 @@ function ProductDetail() {
                         </div>
 
                         <div class="col-lg-7 col-md-6">
-                            <div class="product-details-view-content sp-normal-content pt-60">
+                            <div class="product-details-view-content sp-normal-content">
                                 <div class="product-info">
-                                    <h2>{product.name}</h2>
-                                    <span class="product-details-ref">Reference: demo_15</span>
-                                    <div class="rating-box pt-20">
-                                        <ul class="rating rating-with-review-item">
-                                            <li><i><FaStar /></i></li>
-                                            <li><i><FaStar /></i></li>
-                                            <li><i><FaStar /></i></li>
-                                            <li class="no-star"> <i><FaStar /></i></li>
-                                            <li class="no-star"> <i><FaStar /></i></li>
+                                    <h2 class="font-weight-bold" style={{ fontSize: 40 }}>{product.name}</h2>
+                                    <div className="rating-box">
+                                        <span>Assess: </span>
+                                        <ul className="rating rating-with-review-item">
+                                            <li>
+                                                <i><FaStar size={24} color="#ffc107" /></i>
+                                            </li>
+                                            <li>
+                                                <i><FaStar size={24} color="#ffc107" /></i>
+                                            </li>
+                                            <li>
+                                                <i><FaStar size={24} color="#ffc107" /></i>
+                                            </li>
+                                            <li className="no-star">
+                                                <i><FaStar size={24} color="#ccc" /></i>
+                                            </li>
+                                            <li className="no-star">
+                                                <i><FaStar size={24} color="#ccc" /></i>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
-                                        <span class="new-price new-price-2">${product.price}</span>
-                                    </div>
-                                    <div class="product-desc">
-                                        <p>
-                                            <span>{product.description}
-                                            </span>
-                                        </p>
+                                        <span class="new-price new-price-2">Price: ${product.price}</span>
                                     </div>
 
                                     <div className="quantity form-group">
@@ -121,7 +130,7 @@ function ProductDetail() {
                                                 <button className="btn btn-outline-secondary" type="button" onClick={() => setQuantity(Math.max(quantity - 1, 1))}>-</button>
                                             </div>
                                             <input type="text" className="form-control text-center" id="quantity" value={quantity} readOnly />
-                                            <div className="input-group-append">
+                                            <div className="input-group-append mr-200 pr-200">
                                                 <button className="btn btn-outline-secondary" type="button" onClick={() => setQuantity(quantity + 1)}>+</button>
                                             </div>
                                         </div>
@@ -129,30 +138,8 @@ function ProductDetail() {
 
                                     <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
 
-                                    {/* <div class="single-add-to-cart">
-                                        <form action="#" class="cart-quantity">
-                                            <div class="quantity">
-                                                <label>Quantity</label>
-                                                <div class="cart-plus-minus">
-                                                {product.qty}
-                                                    <input class="cart-plus-minus-box" defaultValue="1" type="text"/>
-                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                </div>
-                                            </div>
-                                            <button class="add-to-cart" type="submit">Add to cart</button>
-                                        </form>
-                                    </div> */}
-                                    <div class="product-additional-info">
-                                        <div class="product-social-sharing">
-                                            <ul>
-                                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-                                                <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
-                                                <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
